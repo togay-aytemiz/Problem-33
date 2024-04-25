@@ -9,7 +9,7 @@ function useUserData() {
   };
 }
 
-const UserContext = createContext(useUserData());
+const UserContext = createContext(useUserData);
 
 export default function App() {
   return <ProfilePage />;
@@ -28,7 +28,7 @@ function ProfilePage() {
 
 function ProfileInfo() {
   const userData = useContext(UserContext);
-  const { username } = userData;
+  const { username } = userData();
 
   return (
     <div className="border-b border-gray-900/10 pb-12">
@@ -72,7 +72,7 @@ function ProfileInfo() {
 
 function PersonalInfo() {
   const userData = useContext(UserContext);
-  const { firstName, lastName, emailAddress } = userData;
+  const { firstName, lastName, emailAddress } = userData();
 
   return (
     <div className="border-b border-gray-900/10 pb-12">
